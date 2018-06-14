@@ -123,7 +123,6 @@ Some studies show that 89% of rotating banner clicks are on the first slide. So 
 
 <br>
 <hr>
-<hr>
 <br>
 
 ### `[aria-*]` attributes do not have valid values x 8+ 
@@ -215,7 +214,7 @@ If it must read "Read More" or "Learn More" it is possible to add invisble scree
 </a>
 ```
 
-2) Empty links - No text in a link will read nothing to a screen reader. Making the link unidentifiable. This results in a screen reader person not having access to whatever information or behavior was intended. 
+2) Empty links - No text in a link will read nothing to a screen reader or read the entire url. Making the link unidentifiable. This results in a screen reader person not having access to whatever information or behavior was intended. 
 
 ```html
 <a href="a/link.html">

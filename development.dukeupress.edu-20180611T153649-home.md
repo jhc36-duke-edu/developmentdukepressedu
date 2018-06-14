@@ -54,7 +54,7 @@ If new content, such as a dialog, is added to the page, the user's focus is dire
 
 Issue:
 
-The dropdown menus are missing aria attribtues. Keyboard only users can not use the website.
+The dropdown menus are missing aria attributes. Keyboard only users can not use the website.
 
 ![menus](assets/menus.png)
 

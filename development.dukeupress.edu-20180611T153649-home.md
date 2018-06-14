@@ -64,10 +64,72 @@ This site is using already Bootstrap. The Bootstrap 3 dropdown menu is accessibl
 <br>
 <hr>
 
+### The slideshow carousel is not screen reader accessible [priority]
+Inaccessible Carousels are the  most difficult and most time consuming issue on any website. 
+
+Keyboard accessibility is one of the most important aspects of web accessibility. Many users with motor disabilities rely on a keyboard. Blind users also typically use a keyboard for navigation. Some people have tremors which don't allow for fine muscle control. [Learn more](https://webaim.org/techniques/keyboard/)
+
+#### Visual location:
+![inaacessible slider](assets/slide-show.png)
+
+An auto advancing slideshow breaks one of the most important rules of usability and accessiblity. _"Don't make the page do something the user did not ask it to do."_ However they are not explicitly outlawed by WCAG 2.0 AA. It is possible to make it accessible.  
+
+
+### What makes a carousel accessible?
+
+* Users must be able to pause carousel movement because it can be too fast or distracting, making text hard to read.
+* All functionality, including navigating between carousel items, must be operable by keyboard.
+* Changes to carousel items must be communicated to all users, including screen reader users.
+* The keyboard position (“focus”) is managed in a reasonable and comprehensible fashion.
+* Note: Carousels are disputed from a usability perspective because their content can be hard to discover. Ensuring accessibility can also improve usability.
+
+### Why is this important?
+Typically, carousels are prominently located and are used to provide navigation or show page content. Accessible carousels are essential for many website users including:
+
+* People using keyboard navigation and voice input software can navigate between individual items.
+* People using screen readers will understand which item is currently shown and how to navigate between items.
+* People who are distracted by movement can pause animations.
+* People who need more time to read can pause animations, providing them with sufficient time to read and understand carousel content.
+
+
+#### To fix this slideshow:
+
+##### 1) Add missing play/pause button. 
+For full WCAG 2.0 compliance Carousels are not allowed to auto-advance. 
+
+If the website chooses to keep the autoadvance functionality, it must have a pause button. 
+
+
+##### 2) Controls can not be hidden. 
+Currently the user must hover over the carousel to see the next and back buttons/links with a mouse. Some people cannot use a mouse, so they would never know they could control it. They need to be visible at all times.
+
+###### Visual location:
+
+![previous button](assets/prev.png)
+![next button](assets/next.png)
+
+##### 3) Add the appropriate ARIA attributes.
+
+Retrofiting ARIA attributes like aria-hidden on hidden slides. 
+
+
+#### _My Advice_
+
+Because of the inherit usability and accessibility issues all slideshow provide, I always recommend removing them. Removing it will take less time than it will take to fix all the errors. This might be possible by having only one slide in the rotator, depending on its configuration.
+
+As an alternative, sometimes people put the banners in a schedule, so each day or each week they change. It keeps the content fresh without needing to update it. I submit to you that changing a static banner often, or putting them on a schedule will probably result in more interest in the content overall and result in more clicks.
+
+Some studies show that 89% of rotating banner clicks are on the first slide. So people rarely see the second slide.  If the slideshow does not auto-rotate I expect the number is even lower.
+
+<br>
+<hr>
+<hr>
+<br>
+
 ### `[aria-*]` attributes do not have valid values x 8+ 
 Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid values. [Learn more](https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse).
 
-It is invalid because `aria-describedby` references `slick-slide00` which does not exist.
+This is related to the rotating banner. It is invalid because `aria-describedby` references `slick-slide00` which does not exist.
 
 This error is repeated on all 8 slides in this Slick slider
 
@@ -265,6 +327,8 @@ Fix any of the following:
 
 #### Hidden extraneous link
 
+This is related to the rotating banner.
+
 #####Visual location:
 
 Hidden behind slideshow
@@ -302,6 +366,8 @@ Fix any of the following:
 
 
 #### Hidden extraneous link
+
+This is related to the rotating banner.
 
 #####Visual location:
 
@@ -341,6 +407,8 @@ Fix any of the following:
 
 #### Hidden extraneous link
 
+This is related to the rotating banner.
+
 #####Visual location:
 
 Hidden behind slideshow
@@ -379,6 +447,8 @@ Fix any of the following:
 
 #### Hidden extraneous link
 
+This is related to the rotating banner.
+
 #####Visual location:
 
 Hidden behind slideshow
@@ -416,6 +486,8 @@ Fix any of the following:
 
 
 #### Hidden extraneous link
+
+This is related to the rotating banner.
 
 #####Visual location:
 
@@ -656,68 +728,6 @@ This makes the page much easier for screen readers to navigate and skip sections
 <br>
 <hr>
 
-
-## The slideshow carousel is not screen reader accessible [priority]
-Inaccessible Carousels are the  most difficult and most time consuming issue on any website. 
-
-Keyboard accessibility is one of the most important aspects of web accessibility. Many users with motor disabilities rely on a keyboard. Blind users also typically use a keyboard for navigation. Some people have tremors which don't allow for fine muscle control. [Learn more](https://webaim.org/techniques/keyboard/)
-
-#### Visual location:
-![inaacessible slider](assets/slide-show.png)
-
-An auto advancing slideshow breaks one of the most important rules of usability and accessiblity. _"Don't make the page do something the user did not ask it to do."_ However they are not explicitly outlawed by WCAG 2.0 AA. It is possible to make it accessible.  
-
-
-### What makes a carousel accessible?
-
-* Users must be able to pause carousel movement because it can be too fast or distracting, making text hard to read.
-* All functionality, including navigating between carousel items, must be operable by keyboard.
-* Changes to carousel items must be communicated to all users, including screen reader users.
-* The keyboard position (“focus”) is managed in a reasonable and comprehensible fashion.
-* Note: Carousels are disputed from a usability perspective because their content can be hard to discover. Ensuring accessibility can also improve usability.
-
-### Why is this important?
-Typically, carousels are prominently located and are used to provide navigation or show page content. Accessible carousels are essential for many website users including:
-
-* People using keyboard navigation and voice input software can navigate between individual items.
-* People using screen readers will understand which item is currently shown and how to navigate between items.
-* People who are distracted by movement can pause animations.
-* People who need more time to read can pause animations, providing them with sufficient time to read and understand carousel content.
-
-
-#### To fix this slideshow:
-
-##### 1) Add missing play/pause button. 
-For full WCAG 2.0 compliance Carousels are not allowed to auto-advance. 
-
-If the website chooses to keep the autoadvance functionality, it must have a pause button. 
-
-
-##### 2) Controls can not be hidden. 
-Currently the user must hover over the carousel to see the next and back buttons/links with a mouse. Some people cannot use a mouse, so they would never know they could control it. They need to be visible at all times.
-
-###### Visual location:
-
-![previous button](assets/prev.png)
-![next button](assets/next.png)
-
-##### 3) Add the appropriate ARIA attributes.
-
-Retrofiting ARIA attributes like aria-hidden on hidden slides. 
-
-
-#### _My Advice_
-
-Because of the inherit usability and accessibility issues all slideshow provide, I always recommend removing them. Removing it will take less time than it will take to fix all the errors. This might be possible by having only one slide in the rotator, depending on its configuration.
-
-As an alternative, sometimes people put the banners in a schedule, so each day or each week they change. It keeps the content fresh without needing to update it. I submit to you that changing a static banner often, or putting them on a schedule will probably result in more interest in the content overall and result in more clicks.
-
-Some studies show that 89% of rotating banner clicks are on the first slide. So people rarely see the second slide.  If the slideshow does not auto-rotate I expect the number is even lower.
-
-<br>
-<hr>
-<hr>
-<br>
 
 ## How was this report created?
 This report is partially generated by [Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse/), [aXe Accessibility](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US) extention, [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh), and manual tests indicated in this document. To ensure the entire website is fixed, rechecking the work in those three tools will be a good indication of successful remediation.

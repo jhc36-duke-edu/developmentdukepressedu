@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>development.dukeupress.edu-20180611T153649</title>
+<title>development.dukeupress.edu-20180611T153649-home</title>
 
 
 <style type="text/css">
@@ -565,19 +565,86 @@ code {
 <br>
 <hr></p>
 
-<h3 id="toc_4"><code>[aria-*]</code> attributes do not have valid values x 8+</h3>
+<h3 id="toc_4">The slideshow carousel is not screen reader accessible [priority]</h3>
 
-<p>Assistive technologies, like screen readers, can&#39;t interpret ARIA attributes with invalid values. <a href="https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse">Learn more</a>.</p>
+<p>Inaccessible Carousels are the  most difficult and most time consuming issue on any website. </p>
 
-<p>It is invalid because <code>aria-describedby</code> references <code>slick-slide00</code> which does not exist.</p>
-
-<p>This error is repeated on all 8 slides in this Slick slider</p>
+<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users with motor disabilities rely on a keyboard. Blind users also typically use a keyboard for navigation. Some people have tremors which don&#39;t allow for fine muscle control. <a href="https://webaim.org/techniques/keyboard/">Learn more</a></p>
 
 <h4 id="toc_5">Visual location:</h4>
 
+<p><img src="assets/slide-show.png" alt="inaacessible slider"></p>
+
+<p>An auto advancing slideshow breaks one of the most important rules of usability and accessiblity. <em>&quot;Don&#39;t make the page do something the user did not ask it to do.&quot;</em> However they are not explicitly outlawed by WCAG 2.0 AA. It is possible to make it accessible.  </p>
+
+<h3 id="toc_6">What makes a carousel accessible?</h3>
+
+<ul>
+<li>Users must be able to pause carousel movement because it can be too fast or distracting, making text hard to read.</li>
+<li>All functionality, including navigating between carousel items, must be operable by keyboard.</li>
+<li>Changes to carousel items must be communicated to all users, including screen reader users.</li>
+<li>The keyboard position (“focus”) is managed in a reasonable and comprehensible fashion.</li>
+<li>Note: Carousels are disputed from a usability perspective because their content can be hard to discover. Ensuring accessibility can also improve usability.</li>
+</ul>
+
+<h3 id="toc_7">Why is this important?</h3>
+
+<p>Typically, carousels are prominently located and are used to provide navigation or show page content. Accessible carousels are essential for many website users including:</p>
+
+<ul>
+<li>People using keyboard navigation and voice input software can navigate between individual items.</li>
+<li>People using screen readers will understand which item is currently shown and how to navigate between items.</li>
+<li>People who are distracted by movement can pause animations.</li>
+<li>People who need more time to read can pause animations, providing them with sufficient time to read and understand carousel content.</li>
+</ul>
+
+<h4 id="toc_8">To fix this slideshow:</h4>
+
+<h5 id="toc_9">1) Add missing play/pause button.</h5>
+
+<p>For full WCAG 2.0 compliance Carousels are not allowed to auto-advance. </p>
+
+<p>If the website chooses to keep the autoadvance functionality, it must have a pause button. </p>
+
+<h5 id="toc_10">2) Controls can not be hidden.</h5>
+
+<p>Currently the user must hover over the carousel to see the next and back buttons/links with a mouse. Some people cannot use a mouse, so they would never know they could control it. They need to be visible at all times.</p>
+
+<h6 id="toc_11">Visual location:</h6>
+
+<p><img src="assets/prev.png" alt="previous button">
+<img src="assets/next.png" alt="next button"></p>
+
+<h5 id="toc_12">3) Add the appropriate ARIA attributes.</h5>
+
+<p>Retrofiting ARIA attributes like aria-hidden on hidden slides. </p>
+
+<h4 id="toc_13"><em>My Advice</em></h4>
+
+<p>Because of the inherit usability and accessibility issues all slideshow provide, I always recommend removing them. Removing it will take less time than it will take to fix all the errors. This might be possible by having only one slide in the rotator, depending on its configuration.</p>
+
+<p>As an alternative, sometimes people put the banners in a schedule, so each day or each week they change. It keeps the content fresh without needing to update it. I submit to you that changing a static banner often, or putting them on a schedule will probably result in more interest in the content overall and result in more clicks.</p>
+
+<p>Some studies show that 89% of rotating banner clicks are on the first slide. So people rarely see the second slide.  If the slideshow does not auto-rotate I expect the number is even lower.</p>
+
+<p><br>
+<hr>
+<hr>
+<br></p>
+
+<h3 id="toc_14"><code>[aria-*]</code> attributes do not have valid values x 8+</h3>
+
+<p>Assistive technologies, like screen readers, can&#39;t interpret ARIA attributes with invalid values. <a href="https://dequeuniversity.com/rules/axe/2.2/aria-valid-attr-value?application=lighthouse">Learn more</a>.</p>
+
+<p>This is related to the rotating banner. It is invalid because <code>aria-describedby</code> references <code>slick-slide00</code> which does not exist.</p>
+
+<p>This error is repeated on all 8 slides in this Slick slider</p>
+
+<h4 id="toc_15">Visual location:</h4>
+
 <p><img src="assets/aria-no-exist.png" alt="element with invalid aria-role"></p>
 
-<h4 id="toc_6">HTML location:</h4>
+<h4 id="toc_16">HTML location:</h4>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;/Products/Books/Loneliness-and-Its-Opposite&quot; class=&quot;slick-slide slick-current slick-active&quot; data-slick-index=&quot;0&quot; aria-hidden=&quot;false&quot; tabindex=&quot;-1&quot; role=&quot;option&quot; aria-describedby=&quot;slick-slide00&quot; style=&quot;width: 367px;&quot;&gt;</code></pre></div>
 
@@ -592,7 +659,7 @@ code {
 <br>
 <hr></p>
 
-<h3 id="toc_7"><code>[id]</code> attributes on the page are not unique x 5</h3>
+<h3 id="toc_17"><code>[id]</code> attributes on the page are not unique x 5</h3>
 
 <p>The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. <a href="https://dequeuniversity.com/rules/axe/2.2/duplicate-id?application=lighthouse">Learn more</a>.</p>
 
@@ -600,11 +667,11 @@ code {
 
 <p>It can also cause JS errors for any user because the behavior may try to run on the wrong ID.</p>
 
-<h5 id="toc_8">Visual location:</h5>
+<h5 id="toc_18">Visual location:</h5>
 
 <p><img src="assets/id-attibute-not-unique.png" alt="id attibute in menu not unique"></p>
 
-<h5 id="toc_9">HTML location:</h5>
+<h5 id="toc_19">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;ul id=&quot;menuElem&quot;&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -631,7 +698,7 @@ code {
 <br>
 <hr></p>
 
-<h3 id="toc_10">Links do not have a discernible name x 14+</h3>
+<h3 id="toc_20">Links do not have a discernible name x 14+</h3>
 
 <p>Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. <a href="https://dequeuniversity.com/rules/axe/2.2/link-name?application=lighthouse">Learn more</a>.</p>
 
@@ -658,13 +725,13 @@ code {
 
 <p>These 14 errors are a combination of those issues.</p>
 
-<h4 id="toc_11">Search icon link</h4>
+<h4 id="toc_21">Search icon link</h4>
 
-<h5 id="toc_12">Visual location:</h5>
+<h5 id="toc_22">Visual location:</h5>
 
 <p><img src="assets/search.png" alt="search"></p>
 
-<h5 id="toc_13">HTML location:</h5>
+<h5 id="toc_23">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;/Special-Pages/Search&quot;&gt;&lt;span class=&quot;icon-search&quot;&gt;&lt;/span&gt;&lt;/a&gt;</code></pre></div>
 
@@ -691,13 +758,13 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_14">Shopping cart link</h4>
+<h4 id="toc_24">Shopping cart link</h4>
 
-<h5 id="toc_15">Visual location:</h5>
+<h5 id="toc_25">Visual location:</h5>
 
 <p><img src="assets/shopping-cart.png" alt="Shopping cart"></p>
 
-<h5 id="toc_16">HTML location:</h5>
+<h5 id="toc_26">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;/Special-Pages/Checkout/Shopping-Cart&quot;&gt;&lt;span class=&quot;icon-cart&quot;&gt;&lt;/span&gt;&lt;/a&gt;</code></pre></div>
 
@@ -724,14 +791,14 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_17">Blank Flexslider previous and back button</h4>
+<h4 id="toc_27">Blank Flexslider previous and back button</h4>
 
-<h5 id="toc_18">Visual location:</h5>
+<h5 id="toc_28">Visual location:</h5>
 
 <p><img src="assets/prev.png" alt="previous button">
 <img src="assets/next.png" alt="next button"></p>
 
-<h5 id="toc_19">HTML location:</h5>
+<h5 id="toc_29">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;ul class=&quot;flex-direction-nav&quot;&gt;
   &lt;li&gt;
@@ -747,13 +814,15 @@ Fix all of the following:
 <p><br>
 <hr></p>
 
-<h4 id="toc_20">Hidden extraneous link</h4>
+<h4 id="toc_30">Hidden extraneous link</h4>
 
-<h5 id="toc_21">Visual location:</h5>
+<p>This is related to the rotating banner.</p>
+
+<h5 id="toc_31">Visual location:</h5>
 
 <p>Hidden behind slideshow</p>
 
-<h5 id="toc_22">HTML location:</h5>
+<h5 id="toc_32">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;&quot;&gt; &lt;!--&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;--&gt;&lt;/a&gt;</code></pre></div>
 
@@ -780,13 +849,15 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_23">Hidden extraneous link</h4>
+<h4 id="toc_33">Hidden extraneous link</h4>
 
-<h5 id="toc_24">Visual location:</h5>
+<p>This is related to the rotating banner.</p>
+
+<h5 id="toc_34">Visual location:</h5>
 
 <p>Hidden behind slideshow</p>
 
-<h5 id="toc_25">HTML location:</h5>
+<h5 id="toc_35">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;&quot;&gt; &lt;!--&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;--&gt;&lt;/a&gt;</code></pre></div>
 
@@ -813,13 +884,15 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_26">Hidden extraneous link</h4>
+<h4 id="toc_36">Hidden extraneous link</h4>
 
-<h5 id="toc_27">Visual location:</h5>
+<p>This is related to the rotating banner.</p>
+
+<h5 id="toc_37">Visual location:</h5>
 
 <p>Hidden behind slideshow</p>
 
-<h5 id="toc_28">HTML location:</h5>
+<h5 id="toc_38">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;&quot;&gt; &lt;!--&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;--&gt;&lt;/a&gt;</code></pre></div>
 
@@ -846,13 +919,15 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_29">Hidden extraneous link</h4>
+<h4 id="toc_39">Hidden extraneous link</h4>
 
-<h5 id="toc_30">Visual location:</h5>
+<p>This is related to the rotating banner.</p>
+
+<h5 id="toc_40">Visual location:</h5>
 
 <p>Hidden behind slideshow</p>
 
-<h5 id="toc_31">HTML location:</h5>
+<h5 id="toc_41">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;&quot;&gt; &lt;!--&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;--&gt;&lt;/a&gt;</code></pre></div>
 
@@ -879,13 +954,15 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_32">Hidden extraneous link</h4>
+<h4 id="toc_42">Hidden extraneous link</h4>
 
-<h5 id="toc_33">Visual location:</h5>
+<p>This is related to the rotating banner.</p>
+
+<h5 id="toc_43">Visual location:</h5>
 
 <p>Hidden behind slideshow</p>
 
-<h5 id="toc_34">HTML location:</h5>
+<h5 id="toc_44">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;&quot;&gt; &lt;!--&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;--&gt;&lt;/a&gt;</code></pre></div>
 
@@ -912,13 +989,13 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_35">Links in the grey band x 5:</h4>
+<h4 id="toc_45">Links in the grey band x 5:</h4>
 
-<h5 id="toc_36">Visual location:</h5>
+<h5 id="toc_46">Visual location:</h5>
 
 <p><img src="assets/grey-band-menu-logos.png" alt="grey band menu"></p>
 
-<h5 id="toc_37">HTML location:</h5>
+<h5 id="toc_47">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;div class=&quot;latest-content&quot;&gt;
   ...
@@ -944,13 +1021,13 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_38">Latest News</h4>
+<h4 id="toc_48">Latest News</h4>
 
-<h5 id="toc_39">Visual location:</h5>
+<h5 id="toc_49">Visual location:</h5>
 
 <p><img src="assets/open-access.png" alt="Open access"></p>
 
-<h5 id="toc_40">HTML location:</h5>
+<h5 id="toc_50">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;/About/News/OPEN-ACCESS-AT-DUKE-UNIVERSITY-PRESS-BLOG-SERIES&quot;&gt;&lt;/a&gt;</code></pre></div>
 
@@ -977,13 +1054,13 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h4 id="toc_41">Latest blog posts</h4>
+<h4 id="toc_51">Latest blog posts</h4>
 
-<h5 id="toc_42">Visual location:</h5>
+<h5 id="toc_52">Visual location:</h5>
 
 <p><img src="assets/pricing.png" alt="pricing"></p>
 
-<h5 id="toc_43">HTML location:</h5>
+<h5 id="toc_53">HTML location:</h5>
 
 <div><pre><code class="language-markup">&lt;a href=&quot;https://dukeupress.wordpress.com/2018/06/05/2019-pricing-now-available/&quot;&gt;&lt;/a&gt;</code></pre></div>
 
@@ -1010,17 +1087,17 @@ Fix all of the following:
 </details>
 <hr></p>
 
-<h2 id="toc_44">Some background and foreground colors do not have a sufficient contrast ratio.</h2>
+<h2 id="toc_54">Some background and foreground colors do not have a sufficient contrast ratio.</h2>
 
 <p>Low-contrast text is difficult or impossible for many users to read. <a href="https://dequeuniversity.com/rules/axe/2.2/color-contrast?application=lighthouse">Learn more</a>.</p>
 
 <p>This is actually a false positive. However even false positives have been used to support the claim of a website being innaccessible. So they need remediated.</p>
 
-<h5 id="toc_45">Visual location:</h5>
+<h5 id="toc_55">Visual location:</h5>
 
 <p><img src="assets/color-slide-title-false-positive.png" alt="color slide title false positive"></p>
 
-<h5 id="toc_46">HTML location:</h5>
+<h5 id="toc_56">HTML location:</h5>
 
 <p>In the Flexslider.</p>
 
@@ -1034,7 +1111,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_47">The page has a logical tab order</h3>
+<h3 id="toc_57">The page has a logical tab order</h3>
 
 <p>Tabbing through the page follows the visual layout. Users cannot focus elements that are offscreen. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#start_with_the_keyboard">Learn more</a>.</p>
 
@@ -1044,7 +1121,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_48">User focus is not accidentally trapped in a region</h3>
+<h3 id="toc_58">User focus is not accidentally trapped in a region</h3>
 
 <p>A user can tab into and out of any control or region without accidentally trapping their focus. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#start_with_the_keyboard">Learn more</a>.</p>
 
@@ -1054,7 +1131,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_49">Custom controls have associated labels</h3>
+<h3 id="toc_59">Custom controls have associated labels</h3>
 
 <p>Custom interactive controls have associated labels, provided by aria-label or aria-labelledby. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#try_it_with_a_screen_reader">Learn more</a>.</p>
 
@@ -1066,7 +1143,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_50">Custom controls have ARIA roles</h3>
+<h3 id="toc_60">Custom controls have ARIA roles</h3>
 
 <p>Custom interactive controls have appropriate ARIA roles. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#try_it_with_a_screen_reader">Learn more</a>.</p>
 
@@ -1078,7 +1155,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_51">Visual order on the page follows DOM order</h3>
+<h3 id="toc_61">Visual order on the page follows DOM order</h3>
 
 <p>DOM order matches the visual order, improving navigation for assistive technology. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#try_it_with_a_screen_reader">Learn more</a>.</p>
 
@@ -1087,7 +1164,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_52">Offscreen content is hidden from assistive technology</h3>
+<h3 id="toc_62">Offscreen content is hidden from assistive technology</h3>
 
 <p>Offscreen content is hidden with display: none or aria-hidden=true. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#try_it_with_a_screen_reader">Learn more</a>.</p>
 
@@ -1099,7 +1176,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_53">Headings don&#39;t skip levels</h3>
+<h3 id="toc_63">Headings don&#39;t skip levels</h3>
 
 <p>Headings are used to create an outline for the page and heading levels are not skipped. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#take_advantage_of_headings_and_landmarks">Learn more</a>.</p>
 
@@ -1109,7 +1186,7 @@ Fix all of the following:
 <br>
 <hr></p>
 
-<h3 id="toc_54">HTML5 landmark elements are used to improve navigation</h3>
+<h3 id="toc_64">HTML5 landmark elements are used to improve navigation</h3>
 
 <p>Landmark elements <code>(&lt;main&gt;, &lt;nav&gt;, etc.)</code> are used to improve the keyboard navigation of the page for assistive technology. <a href="https://developers.google.com/web/fundamentals/accessibility/how-to-review#take_advantage_of_headings_and_landmarks">Learn more</a>.</p>
 
@@ -1121,73 +1198,6 @@ Fix all of the following:
 <br>
 <br>
 <hr></p>
-
-<h2 id="toc_55">The slideshow carousel is not screen reader accessible [priority]</h2>
-
-<p>Inaccessible Carousels are the  most difficult and most time consuming issue on any website. </p>
-
-<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users with motor disabilities rely on a keyboard. Blind users also typically use a keyboard for navigation. Some people have tremors which don&#39;t allow for fine muscle control. <a href="https://webaim.org/techniques/keyboard/">Learn more</a></p>
-
-<h4 id="toc_56">Visual location:</h4>
-
-<p><img src="assets/slide-show.png" alt="inaacessible slider"></p>
-
-<p>An auto advancing slideshow breaks one of the most important rules of usability and accessiblity. <em>&quot;Don&#39;t make the page do something the user did not ask it to do.&quot;</em> However they are not explicitly outlawed by WCAG 2.0 AA. It is possible to make it accessible.  </p>
-
-<h3 id="toc_57">What makes a carousel accessible?</h3>
-
-<ul>
-<li>Users must be able to pause carousel movement because it can be too fast or distracting, making text hard to read.</li>
-<li>All functionality, including navigating between carousel items, must be operable by keyboard.</li>
-<li>Changes to carousel items must be communicated to all users, including screen reader users.</li>
-<li>The keyboard position (“focus”) is managed in a reasonable and comprehensible fashion.</li>
-<li>Note: Carousels are disputed from a usability perspective because their content can be hard to discover. Ensuring accessibility can also improve usability.</li>
-</ul>
-
-<h3 id="toc_58">Why is this important?</h3>
-
-<p>Typically, carousels are prominently located and are used to provide navigation or show page content. Accessible carousels are essential for many website users including:</p>
-
-<ul>
-<li>People using keyboard navigation and voice input software can navigate between individual items.</li>
-<li>People using screen readers will understand which item is currently shown and how to navigate between items.</li>
-<li>People who are distracted by movement can pause animations.</li>
-<li>People who need more time to read can pause animations, providing them with sufficient time to read and understand carousel content.</li>
-</ul>
-
-<h4 id="toc_59">To fix this slideshow:</h4>
-
-<h5 id="toc_60">1) Add missing play/pause button.</h5>
-
-<p>For full WCAG 2.0 compliance Carousels are not allowed to auto-advance. </p>
-
-<p>If the website chooses to keep the autoadvance functionality, it must have a pause button. </p>
-
-<h5 id="toc_61">2) Controls can not be hidden.</h5>
-
-<p>Currently the user must hover over the carousel to see the next and back buttons/links with a mouse. Some people cannot use a mouse, so they would never know they could control it. They need to be visible at all times.</p>
-
-<h6 id="toc_62">Visual location:</h6>
-
-<p><img src="assets/prev.png" alt="previous button">
-<img src="assets/next.png" alt="next button"></p>
-
-<h5 id="toc_63">3) Add the appropriate ARIA attributes.</h5>
-
-<p>Retrofiting ARIA attributes like aria-hidden on hidden slides. </p>
-
-<h4 id="toc_64"><em>My Advice</em></h4>
-
-<p>Because of the inherit usability and accessibility issues all slideshow provide, I always recommend removing them. Removing it will take less time than it will take to fix all the errors. This might be possible by having only one slide in the rotator, depending on its configuration.</p>
-
-<p>As an alternative, sometimes people put the banners in a schedule, so each day or each week they change. It keeps the content fresh without needing to update it. I submit to you that changing a static banner often, or putting them on a schedule will probably result in more interest in the content overall and result in more clicks.</p>
-
-<p>Some studies show that 89% of rotating banner clicks are on the first slide. So people rarely see the second slide.  If the slideshow does not auto-rotate I expect the number is even lower.</p>
-
-<p><br>
-<hr>
-<hr>
-<br></p>
 
 <h2 id="toc_65">How was this report created?</h2>
 
